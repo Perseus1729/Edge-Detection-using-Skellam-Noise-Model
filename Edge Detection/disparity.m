@@ -1,3 +1,5 @@
+%% Plots the disparity plots for mu1 and mu2 
+% Read the images and set up variables
 img = double(imread("Patches/107.tiff"));
 patch = img(1:64,1:64,:);
 u1r = zeros(1,10);
@@ -8,6 +10,8 @@ u2g = zeros(1,10);
 u2b = zeros(1,10);
 L = 64;
 m = 10;
+
+%% Varying the disparity
 for disp = 1:m
     differ = patch(1: L - disp, 1: L - disp, :) - patch(disp + 1 : L, disp + 1 : L, :);
     patch_M = mean(patch(:, :, :), [1 2]);
@@ -23,6 +27,7 @@ for disp = 1:m
     u2b(disp) = u2(3);
 end
 
+%% Plot graphs
 A = figure;
 plot(1:m,u1r,'-xr'); hold on;
 plot(1:m,u1g,'-xg');

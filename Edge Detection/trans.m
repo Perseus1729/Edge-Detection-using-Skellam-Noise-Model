@@ -1,5 +1,5 @@
+%% Calculates the confidence intervals for the parameter \alpha
 function y=trans(I_all,slope1,c1,slope2,c2)
-    
     Img_mu1=(I_all.*slope1+c1);
     Img_mu2=(I_all.*slope2+c2);
     alpha=0.99;
